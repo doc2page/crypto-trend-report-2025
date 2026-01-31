@@ -261,6 +261,9 @@
       border: 1px solid transparent
     }
 
+    /* 隐藏TOC中的第一个链接（通常是标题本身） */
+    .toc > ul > li:first-child { display: none }
+
     [data-theme="light"] .toc a {
       background: white;
       border: 1px solid var(--border)
@@ -383,12 +386,37 @@
       transition: background 0.3s ease
     }
 
+    /* 元数据blockquote - 隐藏（信息已在报告底部显示） */
+    blockquote.meta-info {
+      display: none;
+    }
+
+    blockquote.meta-info p {
+      margin: 0;
+      display: inline;
+      color: var(--text-light);
+      margin-right: 1rem
+    }
+
+    blockquote.meta-info p:last-child {
+      margin-right: 0
+    }
+
+    blockquote.meta-info strong {
+      color: var(--accent)
+    }
+
     [data-theme="light"] blockquote {
       background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
       color: #0e7490
     }
 
-    blockquote::before {
+    [data-theme="light"] blockquote.meta-info {
+      background: #f1f5f9;
+      border-left-color: var(--secondary)
+    }
+
+    blockquote:not(.meta-info)::before {
       content: '"';
       position: absolute;
       top: -0.5rem;
@@ -559,85 +587,25 @@
       <nav class="toc">
         <div class="toc-title">📑 目录导航</div>
         <ul class="toc-grid">
-        <li><a href="#crypto-创业趋势研究报告-2025">Crypto 创业趋势研究报告 2025</a>
-        <ul>
-        <li><a href="#执行摘要">📌 执行摘要</a>
-        <ul>
-        <li><a href="#一句话总结">一句话总结</a></li>
-        <li><a href="#核心洞察2025-年度">核心洞察（2025 年度）</a></li>
-        <li><a href="#年度机会排名">🏆 年度机会排名</a></li>
-        </ul></li>
+                <li><a href="#执行摘要">📌 执行摘要</a>
         <li><a href="#一市场概览行业成熟度跃升">📊 一、市场概览：行业成熟度跃升</a>
-        <ul>
-        <li><a href="#市场规模与增长">1.1 市场规模与增长</a></li>
-        <li><a href="#与传统金融对比">1.2 与传统金融对比</a></li>
-        </ul></li>
         <li><a href="#二机构采用2025年的主旋律">🏦 二、机构采用：2025年的主旋律</a>
-        <ul>
-        <li><a href="#美国-etf-市场的突破">2.1 美国 ETF 市场的突破</a></li>
-        <li><a href="#公开市场公司入局">2.2 公开市场公司入局</a></li>
-        <li><a href="#北美机构采用指数增长49">2.3 北美机构采用指数增长49%</a></li>
-        </ul></li>
         <li><a href="#三基础设施扩容与性能突破">⚙️ 三、基础设施：扩容与性能突破</a>
-        <ul>
-        <li><a href="#以太坊-l2-扩容革命">3.1 以太坊 L2 扩容革命</a></li>
-        <li><a href="#solana-高性能生态崛起">3.2 Solana 高性能生态崛起</a></li>
-        <li><a href="#gas-费用大幅下降">3.3 Gas 费用大幅下降</a></li>
-        </ul></li>
         <li><a href="#四稳定币支付基础设施的成熟">💰 四、稳定币：支付基础设施的成熟</a>
-        <ul>
-        <li><a href="#市场规模与增长-1">4.1 市场规模与增长</a></li>
-        <li><a href="#与传统支付系统对比">4.2 与传统支付系统对比</a></li>
-        <li><a href="#市场集中度">4.3 市场集中度</a></li>
-        </ul></li>
         <li><a href="#五defi-演进rwa-的崛起">🔄 五、DeFi 演进：RWA 的崛起</a>
-        <ul>
-        <li><a href="#rwa-成为第5大defi赛道">5.1 RWA 成为第5大DeFi赛道</a></li>
-        <li><a href="#rwa-市场预测">5.2 RWA 市场预测</a></li>
-        </ul></li>
         <li><a href="#六地理分析全球采用差异">🌍 六、地理分析：全球采用差异</a>
-        <ul>
-        <li><a href="#北美机构采纳中心">6.1 北美：机构采纳中心</a></li>
-        <li><a href="#新兴市场实用采用">6.2 新兴市场：实用采用</a></li>
-        </ul></li>
         <li><a href="#七技术趋势隐私与ai融合">🔬 七、技术趋势：隐私与AI融合</a>
-        <ul>
-        <li><a href="#隐私技术复兴">7.1 隐私技术复兴</a></li>
-        <li><a href="#crypto-x-ai-融合">7.2 Crypto x AI 融合</a></li>
-        </ul></li>
         <li><a href="#八监管环境从敌对到拥抱">⚖️ 八、监管环境：从敌对到拥抱</a>
-        <ul>
-        <li><a href="#美国监管转向">8.1 美国监管转向</a></li>
-        <li><a href="#欧盟-mica-全面生效">8.2 欧盟 MiCA 全面生效</a></li>
-        </ul></li>
         <li><a href="#九深度分析top-5-机会">🔍 九、深度分析：TOP 5 机会</a>
-        <ul>
-        <li><a href="#机会1rwa-现实资产代币化">9.1 机会1：RWA 现实资产代币化</a></li>
-        <li><a href="#机会2机构级稳定币基础设施">9.2 机会2：机构级稳定币基础设施</a></li>
-        <li><a href="#机会3l2-defi-协议">9.3 机会3：L2 DeFi 协议</a></li>
-        <li><a href="#机会4btceth-etf-生态服务">9.4 机会4：BTC/ETH ETF 生态服务</a></li>
-        <li><a href="#机会5隐私技术复兴">9.5 机会5：隐私技术复兴</a></li>
-        </ul></li>
         <li><a href="#十风险预警">⚠️ 十、风险预警</a>
-        <ul>
-        <li><a href="#监管风险">10.1 监管风险</a></li>
-        <li><a href="#技术风险">10.2 技术风险</a></li>
-        <li><a href="#市场风险">10.3 市场风险</a></li>
-        </ul></li>
         <li><a href="#十一2026年展望">🔮 十一、2026年展望</a>
-        <ul>
-        <li><a href="#前瞻性陈述">前瞻性陈述</a></li>
-        </ul></li>
         <li><a href="#十二数据来源与方法论">📚 十二、数据来源与方法论</a>
-        <ul>
-        <li><a href="#数据来源">数据来源</a></li>
-        <li><a href="#情绪独立性声明">情绪独立性声明</a></li>
-        </ul></li>
-        </ul></li>
         </ul>
       </nav>
+      <!-- 隐藏开头的元数据信息 -->
+      <style>.main-content > p:first-of-type { display: none; }</style>
       <h1 id="crypto-创业趋势研究报告-2025">Crypto 创业趋势研究报告 2025</h1>
-      <blockquote>
+      <blockquote class="meta-info">
       <p><strong>报告类型</strong>：年度趋势报告 | <strong>周期</strong>：2025 全年 | <strong>版本</strong>：v1.0 <strong>研究周期</strong>：2025年1月 - 2025年12月 <strong>Skill 版本</strong>：v3.1.0 <strong>生成时间</strong>：2025年1月31日 <strong>数据来源</strong>：Chainalysis、CoinGecko、DeFiLlama、L2Beat、Coinshares、ETF Express、a16z Crypto 等</p>
       </blockquote>
       <hr />
