@@ -130,12 +130,10 @@
         </h1>
 
         <!-- 副标题 -->
-        <div id="subtitle-container" class="hidden">
-          <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 animate-slide-up" style="animation-delay: 0.1s">
-            <span id="subtitle-text"></span>
-          </p>
-        </div>
-      </div>
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-8 animate-slide-up" style="animation-delay: 0.1s">
+          2025年是区块链从"边缘实验"走向"主流金融"的关键转折年
+        </p>
+              </div>
     </header>
 
     <!-- 主内容区 -->
@@ -148,24 +146,21 @@
           </svg>
           目录导航
         </h3>
-        <ul>
-        <li><a href="#crypto-创业趋势研究报告-2025">Crypto 创业趋势研究报告 2025</a>
-        <ul>
-        <li><a href="#执行摘要">📌 执行摘要</a></li>
-        <li><a href="#一市场概览行业成熟度跃升">📊 一、市场概览：行业成熟度跃升</a></li>
-        <li><a href="#二机构采用2025年的主旋律">🏦 二、机构采用：2025年的主旋律</a></li>
-        <li><a href="#三基础设施扩容与性能突破">⚙️ 三、基础设施：扩容与性能突破</a></li>
-        <li><a href="#四稳定币支付基础设施的成熟">💰 四、稳定币：支付基础设施的成熟</a></li>
-        <li><a href="#五defi-演进rwa-的崛起">🔄 五、DeFi 演进：RWA 的崛起</a></li>
-        <li><a href="#六地理分析全球采用差异">🌍 六、地理分析：全球采用差异</a></li>
-        <li><a href="#七技术趋势隐私与ai融合">🔬 七、技术趋势：隐私与AI融合</a></li>
-        <li><a href="#八监管环境从敌对到拥抱">⚖️ 八、监管环境：从敌对到拥抱</a></li>
-        <li><a href="#九深度分析top-5-机会">🔍 九、深度分析：TOP 5 机会</a></li>
-        <li><a href="#十风险预警">⚠️ 十、风险预警</a></li>
-        <li><a href="#十一2026年展望">🔮 十一、2026年展望</a></li>
-        <li><a href="#十二数据来源与方法论">📚 十二、数据来源与方法论</a></li>
-        </ul></li>
-        </ul>
+        <div class="toc-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem;">
+                  <li><a href="#执行摘要">📌 执行摘要</a>
+          <li><a href="#一市场概览行业成熟度跃升">📊 一、市场概览：行业成熟度跃升</a>
+          <li><a href="#二机构采用2025年的主旋律">🏦 二、机构采用：2025年的主旋律</a>
+          <li><a href="#三基础设施扩容与性能突破">⚙️ 三、基础设施：扩容与性能突破</a>
+          <li><a href="#四稳定币支付基础设施的成熟">💰 四、稳定币：支付基础设施的成熟</a>
+          <li><a href="#五defi-演进rwa-的崛起">🔄 五、DeFi 演进：RWA 的崛起</a>
+          <li><a href="#六地理分析全球采用差异">🌍 六、地理分析：全球采用差异</a>
+          <li><a href="#七技术趋势隐私与ai融合">🔬 七、技术趋势：隐私与AI融合</a>
+          <li><a href="#八监管环境从敌对到拥抱">⚖️ 八、监管环境：从敌对到拥抱</a>
+          <li><a href="#九深度分析top-5-机会">🔍 九、深度分析：TOP 5 机会</a>
+          <li><a href="#十风险预警">⚠️ 十、风险预警</a>
+          <li><a href="#十一2026年展望">🔮 十一、2026年展望</a>
+          <li><a href="#十二数据来源与方法论">📚 十二、数据来源与方法论</a>
+        </div>
       </nav>
       
       <!-- 正文内容 -->
@@ -1435,17 +1430,6 @@
     // 初始化
     updateThemeIcons(savedTheme);
 
-    // ========== 副标题注入 ==========
-    const subtitleText = '2025年是区块链从"边缘实验"走向"主流金融"的关键转折年';
-    if (subtitleText && subtitleText !== '2025年是区块链从"边缘实验"走向"主流金融"的关键转折年') {
-      const subtitleContainer = document.getElementById('subtitle-container');
-      const subtitleTextEl = document.getElementById('subtitle-text');
-      if (subtitleContainer && subtitleTextEl) {
-        subtitleTextEl.textContent = subtitleText;
-        subtitleContainer.classList.remove('hidden');
-      }
-    }
-
     // ========== 阅读进度条 ==========
     const progressBar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
@@ -1522,6 +1506,11 @@
       if (!blockquote.classList.contains('meta-info')) {
         blockquote.classList.add('border-l-4', 'border-primary-500', 'pl-4', 'py-1', 'my-6', 'bg-slate-800/30', 'italic', 'text-slate-300');
       }
+    });
+
+    // ========== 隐藏元数据 blockquote ==========
+    document.querySelectorAll('.prose blockquote.meta-info').forEach(blockquote => {
+      blockquote.style.display = 'none';
     });
 
     // ========== TOC 样式处理 ==========
